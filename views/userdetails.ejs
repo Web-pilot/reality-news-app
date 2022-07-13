@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar.ejs") %>
+
+    <!-- SIDEBAR -->
+    <%- include("./partials/sidebar.ejs") %>
+
+    <!-- NEWS DETAILS -->
+    <section class="profile">
+      <% if(userDetails) { %>
+      <div class="container">
+        <div class="user-details" id="<%=userDetails.userid  %> ">
+          <span class="username"
+            ><span><i class="bi bi-person"></i></span><%=userDetails.username %>
+          </span>
+          <img src="/<%-userDetails.profilepic %> " alt="" />
+
+          <span class="name"
+            ><i class="bi bi-person"></i> <%=userDetails.firstname %>
+            <%=userDetails.lastname %></span
+          >
+          <span class="email"
+            ><i class="bi bi-envelope"></i> <%=userDetails.email %>
+          <span class="address"
+            ><i class="bi bi-house"></i> <%=userDetails.address %></span
+          >
+          <span class="phone"
+            ><i class="bi bi-telephone"></i> <%=userDetails.phone %></span
+          >
+        </div>
+      </div>
+      <% } %>
+      <!-- delete account modal -->
+      <%- include("./partials/delete-modal.ejs") %>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">&copy; Reality news App</footer>
+
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+    <script>
+      window.addEventListener("load", function () {
+        //   changeProfilePic();
+        //   deleteUserFromDb();
+      });
+    </script>
+  </body>
+</html>

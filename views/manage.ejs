@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar.ejs") %>
+
+    <!-- SIDEBAR -->
+    <%- include ("./partials/sidebar.ejs") %>
+
+    <section class="create-news-container">
+      <h3>Manage your articles</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %> <% data.forEach(news => { %>
+          <tr>
+            <td>
+              <a href="/news/details/<%=news.newsid %>"> <%= news.title %> </a>
+            </td>
+            <td>
+              <img
+                src="/<%-news.img  %> "
+                alt="<%-news.title  %> "
+                width="50"
+              />
+            </td>
+            <td>
+              <button
+                class="btn btn-sm btn-danger del my-1"
+                id="<%=news.newsid  %> "
+              >
+                <i class="bi bi-trash"></i> Delete
+              </button>
+              <a href="/news/edit/<%=news.newsid %>">
+                <button class="btn btn-warning btn-sm">
+                  <i class="bi bi-pen"></i> Edit
+                </button>
+              </a>
+            </td>
+          </tr>
+          <% }) %> <% } %>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="footer">&copy; Reality news App</footer>
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+    <script>
+      window.addEventListener("load", function () {
+        deleteNews();
+      });
+    </script>
+  </body>
+</html>

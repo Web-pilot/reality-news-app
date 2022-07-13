@@ -1,0 +1,15 @@
+<!-- OPEN SIDEBAR BUTTON -->
+<button class="open-sidebar-btn"><i class="bi bi-list"></i></button>
+
+<article class="sidebar hide">
+  <ul class="list-item-container">
+    <li><a href="/" class="nav-link">Home</a></li>
+    <li><a href="/news" class="nav-link">News</a></li>
+    <li><a href="/create-news" class="nav-link">Publish</a></li>
+    <li><a href="/manage-news" class="nav-link">My Articles</a></li>
+    <% if(user) { %> <% if(user.isadmin) { %>
+    <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+
+    <% } %> <% } %>
+  </ul>
+</article>

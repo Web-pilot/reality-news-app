@@ -1,0 +1,27 @@
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/" class="nav-link text-dark">
+        <img src="/img/logo.jpeg" alt="" /> Reality News
+      </a>
+    </div>
+
+    <div class="action" style="display: flex; align-items: center">
+      <% if(!user){ %>
+      <a
+        href="/account"
+        style="text-decoration: none"
+        class="btn btn-sm btn-outline-secondary"
+        >Login / Signup</a
+      >
+      <% } %> <% if(user) { %>
+      <a href="/user/profile/<%=user.userid %> ">
+        <img src="/<%=user.profilepic  %> " alt="" />
+      </a>
+      <form action="/api/authentication/logout" method="post" class="mx-1">
+        <button class="btn btn-danger btn-sm">Logout</button>
+      </form>
+      <% } %>
+    </div>
+  </nav>
+</header>

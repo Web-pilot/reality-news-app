@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar.ejs") %>
+
+    <!-- SIDEBAR -->
+    <%- include ("./partials/sidebar.ejs") %>
+
+    <section class="create-news-container">
+      <h3>
+        Manage your articles
+        <a href="/dashboard/news-category/create" class="btn btn-sm btn-primary"
+          >ADD CATEGORY</a
+        >
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (categories) { %> <% categories.forEach(category => { %>
+          <tr>
+            <td><%= category.title %></td>
+
+            <td>
+              <button
+                class="btn btn-sm btn-danger del"
+                id="<%=category.categoryid  %> "
+              >
+                <i class="bi bi-trash"></i> Delete
+              </button>
+              <a href="/dashboard/categories/edit/<%=category.categoryid %>">
+                <button class="btn btn-warning btn-sm">
+                  <i class="bi bi-pen"></i> Edit
+                </button>
+              </a>
+            </td>
+          </tr>
+          <% }) %> <% } %>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="footer">&copy; Reality News App</footer>
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+    <script>
+      window.addEventListener("load", function () {
+        deleteCategory();
+      });
+    </script>
+  </body>
+</html>

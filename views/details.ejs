@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar.ejs") %>
+
+    <!-- SIDEBAR -->
+    <%- include ("./partials/sidebar.ejs") %>
+
+    <!-- NEWS DETAILS -->
+    <section class="news-details">
+      <% if(news) { %>
+      <div class="container">
+        <h3 class="title"><%=news.title %></h3>
+        <img src="/<%-news.img  %>" alt="" />
+        <article class="headline"><%=news.headline %></article>
+        <p class="description"><%=news.description %></p>
+        <a href="/user/details/<%-news.userid %>" class="nav-link">
+          <span class="author"><%=news.firstname %> <%=news.lastname %></span>
+        </a>
+        <br />
+        <span class="date"><%=news.date %></span>
+      </div>
+      <% } %>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">&copy; Reality news App</footer>
+
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+  </body>
+</html>

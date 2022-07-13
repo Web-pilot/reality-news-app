@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/navbar-search.ejs") %>
+
+    <!-- SIDEBAR -->
+    <%- include("./partials/sidebar.ejs") %>
+
+    <!-- FILTER NEWS -->
+    <div class="filter-news-container">
+      Filter by:
+      <select name="" id="filter-news">
+        <option value="all">All News</option>
+      </select>
+    </div>
+
+    <!-- NEWS CONTAINER -->
+    <section class="news-container">
+      <h1
+        class="section-title"
+        style="text-align: center; text-transform: capitalize"
+        id="news-heading"
+      >
+        All News
+      </h1>
+      <div class="news-container-grid" id="news-container-grid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">&copy; Reality news App</footer>
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+    <script>
+      window.addEventListener("load", function () {
+        fetchCategories("/api/categories");
+        fetchNews("/api/news");
+
+        filterNewsByCategory();
+        searchNews();
+      });
+    </script>
+  </body>
+</html>

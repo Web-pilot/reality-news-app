@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar") %>
+
+    <!-- SIDEBAR -->
+    <%- include ("./partials/sidebar.ejs") %>
+
+    <!-- PUBLISH NEWS -->
+    <section class="create-news-container">
+      <h3>Add news categories for users to choose from</h3>
+      <form action="/api/categories/create" method="post">
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" />
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Add"
+            class="publish-btn"
+            placeholder="e.g technology"
+            required
+          />
+        </div>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">&copy; Reality news App</footer>
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+
+    <script>
+      window.addEventListener("load", function () {});
+    </script>
+  </body>
+</html>

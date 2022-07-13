@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!--SIDEBAR  -->
+    <%- include("./partials/sidebar.ejs") %>
+
+    <main class="container-fluid account-container">
+      <section class="account">
+        <ul>
+          <li class="active" id="login-btn">login</li>
+          <li id="register-btn">Register</li>
+        </ul>
+        <div class="login-container" id="login-container">
+          <form
+            class="login shadow"
+            id="login-form"
+            action="/api/authentication/login"
+            method="post"
+          >
+            <h4 class="text-white">LOGIN</h4>
+            <% if (messages.error) { %>
+            <span class="text-danger bg-white p-2"> <%=messages.error %> </span>
+            <% } %>
+            <div class="form-group">
+              <label for="loginEmail"
+                ><i class="bi bi-envelope"></i> Email</label
+              >
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="email"
+                class="form-control"
+                name="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword"
+                ><i class="bi bi-key"></i>Password</label
+              >
+              <input
+                type="password"
+                placeholder="password"
+                class="form-control"
+                id="loginPassword"
+                name="password"
+                required
+              />
+            </div>
+            <span class="error-message text-danger m-1"></span>
+            <a href="/account/forgetpassword" class="nav-link bg-dark"
+              >Forget password?</a
+            >
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Login"
+                class="btn btn-sm btn-primary"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="register-container" id="register-container">
+          <form
+            class="register"
+            action="/api/authentication/signup"
+            method="post"
+          >
+            <h4 class="text-white">REGISTER</h4>
+
+            <div class="form-group">
+              <label for="email"><i class="bi bi-envelope"></i>Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password"><i class="bi bi-lock"></i> Password</label>
+              <input
+                type="password"
+                placeholder="password"
+                class="form-control"
+                name="password"
+                id="password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Signup"
+                class="btn btn-sm btn-primary"
+              />
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+    <script>
+      const logigBtn = document.getElementById("login-btn");
+      const registerBtn = document.getElementById("register-btn");
+      const loginContainer = document.getElementById("login-container");
+      const registerContainer = document.getElementById("register-container");
+
+      logigBtn.addEventListener("click", () => {
+        registerBtn.classList.remove("active");
+        logigBtn.classList.add("active");
+
+        loginContainer.style.transform = "translateX(0%)";
+        loginContainer.style.transition = "0.5s";
+
+        registerContainer.style.transform = "translateX(150%)";
+        loginContainer.style.transition = "0.5s";
+      });
+      registerBtn.addEventListener("click", () => {
+        logigBtn.classList.remove("active");
+        registerBtn.classList.add("active");
+
+        loginContainer.style.transform = "translateX(-150%)";
+        loginContainer.style.transition = "0.5s";
+
+        registerContainer.style.transform = "translateX(-150%)";
+        registerContainer.style.transition = "0.5s";
+      });
+    </script>
+  </body>
+</html>

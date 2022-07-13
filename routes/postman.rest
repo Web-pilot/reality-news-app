@@ -1,0 +1,113 @@
+
+POST http://localhost:5000/api/authentication/signup
+Content-Type: application/json
+
+{
+   "email": "ochagwupaul1@gmail.com",
+   "password" : "Reality"
+}
+
+###
+POST http://localhost:5000/api/authentication/login
+Content-Type: application/json
+
+{
+   "email": "ochagwupaul1@gmail.com",
+   "password" :"Reality"
+}
+###
+PUT http://localhost:5000/api/user/edit/5
+Content-Type: application/json
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWxAZ21haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY1NTY3NjIyOSwiZXhwIjoxNjU1ODQ5MDI5fQ.w5eBWRs84BpGlpIYlEqbQ1ih_oVEVEKhmQ3YQ6dc4n0
+
+{
+   "username": "ochagwu",
+   "lastname": "paul",
+   "email": "ochagwupaul1@gmail.com",
+   "firstname" : "ochagwu",
+   "profilepic": "nothing",
+   "phone": "08158099730",
+   "address" : "lekki lagos"
+
+}
+
+###
+GET http://localhost:5000/api/user/
+
+###
+DELETE http://localhost:5000/api/user/delete/5
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWxAZ21haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY1NTY3NjIyOSwiZXhwIjoxNjU1ODQ5MDI5fQ.w5eBWRs84BpGlpIYlEqbQ1ih_oVEVEKhmQ3YQ6dc4n0
+
+###
+PUT /api/user/edit/2 HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTU2MTIyNjIsImV4cCI6MTY1NTc4NTA2Mn0.z9Aq-A8Q9krWSBw3xDyxdv81gyfs7FLhLzWj1zdaZ9g
+Cache-Control: no-cache
+Postman-Token: f8194e6f-4978-8c7f-e440-67931b0af0f7
+
+{
+	"email": "ochagwupaul1@gmail.com",
+	"firstname": "paul"
+}
+
+###
+
+POST http://localhost:5000/api/categories/create
+Content-Type: application/json
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NTY4NTc3NiwiZXhwIjoxNjU1ODU4NTc2fQ.IQSl_gYSi1FQ48I8obnxsoX_vVB19JTawtrVGymS1YU
+
+{
+   "title": "technology"
+}
+
+###
+
+PUT http://localhost:5000/api/categories/edit/3
+Content-Type: application/json
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NTY4NTc3NiwiZXhwIjoxNjU1ODU4NTc2fQ.IQSl_gYSi1FQ48I8obnxsoX_vVB19JTawtrVGymS1YU
+
+{
+   "title": "fashion"
+}
+
+###
+GET http://localhost:5000/api/categories/3
+
+###
+
+DELETE  http://localhost:5000/api/categories/delete/3
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NTY4NTc3NiwiZXhwIjoxNjU1ODU4NTc2fQ.IQSl_gYSi1FQ48I8obnxsoX_vVB19JTawtrVGymS1YU
+
+###
+POST http://localhost:5000/api/news/create
+Content-Type: application/json
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NTY4NTc3NiwiZXhwIjoxNjU1ODU4NTc2fQ.IQSl_gYSi1FQ48I8obnxsoX_vVB19JTawtrVGymS1YU
+
+{
+   "title": "eveybody see news",
+   "headline": "headline",
+   "description": "description",
+   "img": "img",
+   "category": "fashion"
+}
+
+###
+PUT http://localhost:5000/api/news/edit/3
+Content-Type: application/json
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NTY4NTc3NiwiZXhwIjoxNjU1ODU4NTc2fQ.IQSl_gYSi1FQ48I8obnxsoX_vVB19JTawtrVGymS1YU
+
+{
+   "title": "eveybody see news",
+   "headline": "headline",
+   "description": "description",
+   "img": "img",
+   "category": "chagne"
+}
+
+###
+GET http://localhost:5000/api/news
+
+###
+DELETE http://localhost:5000/api/news/delete/2
+token : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOm51bGwsImVtYWlsIjoib2NoYWd3dXBhdWwxQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NTY4NTc3NiwiZXhwIjoxNjU1ODU4NTc2fQ.IQSl_gYSi1FQ48I8obnxsoX_vVB19JTawtrVGymS1YU

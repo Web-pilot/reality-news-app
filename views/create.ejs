@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar") %>
+
+    <!-- SIDEBAR -->
+    <%- include ("./partials/sidebar.ejs") %>
+
+    <!-- PUBLISH NEWS -->
+    <section class="create-news-container">
+      <h3>Compose your viewpoints to your reader.</h3>
+      <form
+        class="create-news"
+        action="/api/news/create"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="create-image">
+          <img src="bg.jpg" alt="" class="create-img-preview" />
+        </div>
+        <label
+          for="file"
+          class="upload-image-icon btn btn-primary btn-sm rounded-circle"
+          ><i class="bi bi-upload"></i
+        ></label>
+        <input
+          type="file"
+          name="img"
+          id="file"
+          accept="image/*"
+          style="display: none"
+          required
+        />
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="headline">Head Line</label>
+          <input
+            type="text"
+            name="headline"
+            id="headline"
+            placeholder="headline"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            placeholder="what do you have for the world"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <select name="category" id="filter-news"></select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Publish" class="publish-btn" />
+        </div>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">&copy; Reality news App</footer>
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+
+    <script>
+      window.addEventListener("load", function () {
+        fetchCategories("/api/categories");
+        createNews();
+      });
+    </script>
+  </body>
+</html>

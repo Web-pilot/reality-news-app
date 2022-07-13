@@ -1,0 +1,43 @@
+<header>
+  <nav class="navbar">
+    <div class="logo" id="big-width-lg">
+      <a href="/" class="nav-link text-dark">
+        <img src="/img/logo.jpeg" alt="" /> Reality News
+      </a>
+    </div>
+    <div class="logo" id="small-width-lg">
+      <a href="/" class="nav-link">
+        <img src="/img/logo.jpeg" alt="" />
+      </a>
+    </div>
+
+    <div class="nav-form-container">
+      <form class="nav-form" id="nav-form">
+        <input type="search" name="search" id="search-news-form" />
+        <input
+          type="submit"
+          value="Search"
+          class="btn btn-sm"
+          id="search-btn"
+        />
+      </form>
+    </div>
+    <div class="action" style="display: flex; align-items: center">
+      <% if(!user){ %>
+      <a
+        href="/account"
+        style="text-decoration: none"
+        class="btn btn-sm btn-outline-secondary"
+        >Login/signup</a
+      >
+      <% } %> <% if(user) { %>
+      <a href="/user/profile/<%=user.userid %> ">
+        <img src="/<%=user.profilepic  %> " alt="" />
+      </a>
+      <form action="/api/authentication/logout" method="post">
+        <button class="btn btn-danger btn-sm">Logout</button>
+      </form>
+      <% } %>
+    </div>
+  </nav>
+</header>

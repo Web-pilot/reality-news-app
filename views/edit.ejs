@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!-- NAVBAR -->
+    <%- include("./partials/general-navbar") %>
+
+    <!-- SIDEBAR -->
+    <%- include ("./partials/sidebar.ejs") %>
+
+    <!-- PUBLISH NEWS -->
+    <section class="create-news-container">
+      <h3>EDIT NEWS/ARTICLE</h3>
+      <% if(news) { %>
+      <form
+        class="update-news"
+        method="post"
+        action="/api/news/edit/<%=news.newsid  %> "
+        enctype="multipart/form-data"
+      >
+        <div class="create-image">
+          <img src="/<%=news.img  %>" alt="" class="edit-img-preview" />
+        </div>
+        <label
+          for="file"
+          class="upload-image-icon btn btn-sm btn-primary rounded-circle"
+          ><i class="bi bi-upload"></i
+        ></label>
+        <input
+          type="file"
+          name="img"
+          id="file"
+          accept="image/*"
+          style="display: none"
+          value="<%=news.img  %> "
+        />
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            class="form-control"
+            value="<%-news.title  %> "
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="headline">Head Line</label>
+          <input
+            type="text"
+            name="headline"
+            id="headline"
+            placeholder="headline"
+            class="form-control"
+            value="<%-news.headline %> "
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            class="form-control"
+            required
+          >
+          <%=news.description  %> 
+         </textarea
+          >
+        </div>
+        <div class="form-group">
+          <select name="category" id="filter-news" class="category">
+            <option value="<%=news.category  %>" selected>
+              <%=news.category %>
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="UPDATE" class="publish-btn" />
+        </div>
+      </form>
+      <% } %>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">&copy; Reality news App</footer>
+    <!-- SCRIPTS -->
+    <%- include("./partials/script.ejs") %>
+    <script>
+      window.addEventListener("load", function () {
+        fetchCategories("/api/categories");
+        const id = window.location.pathname.split("/")[3];
+        updateNews(`/api/news/edit/${id}`);
+      });
+    </script>
+  </body>
+</html>
