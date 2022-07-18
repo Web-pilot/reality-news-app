@@ -6,16 +6,16 @@ const { userIsLogin } = require("../middleware/Login");
 // HOME PAGE
 router.get("/", async (req, res) => {
   try {
-    //  const latestNews = await Pool.query(
-    //    "SELECT * FROM news ORDER BY newsid DESC"
-    //  );
-    //  const news = await Pool.query("SELECT * FROM news");
-    //  const users = await Pool.query("SELECT * FROM users");
+    const latestNews = await Pool.query(
+      "SELECT * FROM news ORDER BY newsid DESC limit(3)"
+    );
+    const news = await Pool.query("SELECT * FROM news");
+    const users = await Pool.query("SELECT * FROM users");
 
     res.render("index.ejs", {
-      // data: latestNews.rows,
-      // user: req.user,
-      // total: { users: users.rowCount, news: news.rowCount },
+      data: latestNews.rows,
+      user: req.user,
+      total: { users: users.rowCount, news: news.rowCount },
       title: "Home",
     });
   } catch (error) {
