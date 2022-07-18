@@ -15,7 +15,7 @@ CREATE TABLE news(
 
 -- USER TABLE
 CREATE TABLE users(
-   userId SERIAL PRIMARY,
+   userId SERIAL PRIMARY KEY,
    profilePic VARCHAR(500),
    firstName VARCHAR(255),
    lastName VARCHAR(255),
@@ -24,8 +24,7 @@ CREATE TABLE users(
    phone VARCHAR(20),
    address VARCHAR(500),
    password VARCHAR(500),
-   isAdmin BOOLEAN = false
-
+   isAdmin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- CATEGORY TABLE
