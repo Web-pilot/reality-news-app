@@ -6,6 +6,7 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("express-flash");
+const favicon = require("express-favicon");
 const Pool = require("./db");
 
 //Routes
@@ -36,6 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/images"));
+app.use(favicon(__dirname + "/public/img/favicon.ico"));
 const port = process.env.PORT || 5000;
 
 //Routes
