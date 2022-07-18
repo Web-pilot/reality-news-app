@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
       title: "Home",
     });
   } catch (error) {
-    res.status(500).json(error.message);
+    res.send("I love coding");
   }
 });
 
