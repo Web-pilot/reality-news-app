@@ -10,6 +10,10 @@ const proConfig = {
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: {
+    requestCert: true,
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = pool;
