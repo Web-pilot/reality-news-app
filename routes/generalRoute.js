@@ -7,7 +7,7 @@ const { userIsLogin } = require("../middleware/Login");
 router.get("/", async (req, res) => {
   try {
     const latestNews = await Pool.query(
-      "SELECT * FROM news ORDER BY newsid DESC limit(3)"
+      "SELECT * FROM news ORDER BY newsid DESC"
     );
     const news = await Pool.query("SELECT * FROM news");
     const users = await Pool.query("SELECT * FROM users");

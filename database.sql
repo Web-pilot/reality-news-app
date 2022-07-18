@@ -1,5 +1,5 @@
 -- DATABASE
-CREATE DATABASE newsapp;
+-- CREATE DATABASE newsapp;
 
 -- NEWS TABLE
 CREATE TABLE news(
