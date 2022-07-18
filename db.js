@@ -6,8 +6,14 @@ const devConfig = {
 
 const proConfig = {
   connectionString: process.env.DATABASE_URL,
+  ssl,
 };
 
-const pool = new Pool(proConfig);
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 module.exports = pool;
