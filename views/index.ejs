@@ -1,104 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-   <!-- head -->
- <%- include("./partials/head.ejs")  %> 
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
   <body>
     <!-- navbar -->
 
     <%- include ("./partials/general-navbar.ejs") %>
 
     <!-- HERO -->
-    <section class="hero-container">
-      <div class="flex-container">
-        <div class="hero-container-left-column">
-           <h3 class="text-white text-center">Reality News App</h3>
-          <ul class="news-slide">
-            <li>Get your most recent news now.</li>
-            <li>Taking an interest in the discussion will expand your insight.</li>
-            <li>Let's Do it!</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-   
-
-    <!-- SIDEBAR -->
-<%- include ("./partials/sidebar.ejs") %> 
-
-    <!-- NEWS UPDATE -->
-    <section class="container news-update">
-     <% if(total) { %> 
-      <div class="updates">
-         <h5><%=total.users  %>  > <span>Users</span></h5>
-         <span class="underline"></span>
-       </div>
-       <div class="updates">
-         <h5 class=""><%=total.news  %>  > <span>News</span></h5>
-         <span class="underline"></span>
-       </div>
-      <% } %> 
-    </section>
-
-    <!-- LATEST NEWS -->
-    <section class="latest-news-container">
-      <h1 class="section-title">Latest news</h1>
-      <div class="container-flex" id="latest-news-container-flex">
-        <% if(data) { %>
-        <div class="flex-span-2">
-          <a href="/news/details/<%=data[0].newsid %>"">
-            <img src="/<%-data[0].img  %> " alt="" />
-            <div class="text">
-              <h5 class="title"><%=data[0].title %></h5>
-              <p class="desc">
-               <%=data[0].headline.slice(0, 15) %> <i class="bi bi-book"></i>...read more
-               <br />
-             <span class="date"><i class="bi bi-alarm-fill"></i><%=data[0].date %></span>
-              </p>
-              
-            </div>
-          </a>
-        </div>
-        <div class="flex-span-1">
-         <a href="/news/details/<%=data[1].newsid %>"">
-           <img src="<%-data[1].img  %>" alt="" />
-           <div class="text">
-             <h5 class="title"><%=data[1].title %></h5>
-             <p class="desc">
-              <%=data[1].headline.slice(0, 15) %> <i class="bi bi-book"></i>...read more
-              <br />
-             <span class="date"><i class="bi bi-alarm-fill"></i><%=data[1].date %></span>
-             </p>
-             
-           </div>
-         </a>
-       </div>
-        <div class="flex-span-1">
-         <a href="/news/details/<%=data[2].newsid %>"">
-           <img src="/<%-data[2].img  %>" alt="" />
-           <div class="text">
-             <h5 class="title"><%=data[2].title %></h5>
-             <p class="desc">
-               </i><%=data[2].headline.slice(0, 15) %> <i class="bi bi-book"></i>...read more <br />
-             <span class="date"><i class="bi bi-alarm-fill"></i><%=data[2].date %></span>
-
-             </p>
-           </div>
-         </a>
-       </div>
-       <!--  -->
-        <% } %>
-      </div>
-    </section>
 
     <!-- FOOTER -->
     <footer class="footer">&copy; Reality news App</footer>
 
-
-
     <!-- SCRIPTS -->
-   <%- include("./partials/script.ejs")  %> 
+    <%- include("./partials/script.ejs") %>
     <script>
-       
       const allHeroSlideList = document.querySelectorAll(".news-slide li");
 
       const slideItem = [...allHeroSlideList];
@@ -112,7 +28,6 @@
         }
         num = num + 1;
       }, 5000);
-
     </script>
   </body>
 </html>

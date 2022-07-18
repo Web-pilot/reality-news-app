@@ -13,9 +13,9 @@ router.get("/", async (req, res) => {
     const users = await Pool.query("SELECT * FROM users");
 
     res.render("index.ejs", {
-      data: latestNews.rows,
-      user: req.user,
-      total: { users: users.rowCount, news: news.rowCount },
+      // data: latestNews.rows,
+      // user: req.user,
+      // total: { users: users.rowCount, news: news.rowCount },
       title: "Home",
     });
   } catch (error) {
